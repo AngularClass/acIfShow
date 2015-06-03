@@ -10,7 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/angular-class/acIfShow.git"
   },
-  "author": "gdi2290 <github@gdi2290.com>",
+  "contributors": [
+    "gdi2290 <gdi2290@github.com>",
+    "PatrickJS <patrick@angularclass.com.com>",
+    "Scott Moss <scott@angularclass.com.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angular-class/acIfShow/issues"
