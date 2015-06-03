@@ -37,7 +37,7 @@
               if (!childScope) {
                 $transclude(function(clone, newScope) {
                   childScope = newScope;
-                  clone[clone.length++] = document.createComment(' end ngIf: ' + $attr.ngIf + ' ');
+                  clone[clone.length++] = document.createComment(' end acIfHide: ' + $attr.acIfHide + ' ');
                   // Note: We only need the first/last node of the cloned nodes.
                   // However, we need to keep the reference to the jqlite wrapper as it might be changed later
                   // by a directive with templateUrl when its template arrives.
@@ -69,7 +69,7 @@
             }
           }
 
-          $scope.$watch($attr.ngIfHide, ngIfHideWatchAction);
+          $scope.$watch($attr.acIfHide, ngIfHideWatchAction);
       }
     };
   }];
