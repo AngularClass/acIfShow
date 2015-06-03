@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AngularClass IfHide</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-csp.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.min.js"></script>
+  <script type="text/javascript" src="../acIfShow.js"></script>
+</head>
+<body class="ng-cloak" id="ng-app" ng-app="app">
+
+<main ng-controller="MainCtrl">
+
+  <button ng-click="toggle()">toggle</button>
+
+  <div ac-if-show="state">
+    Lots of bindings that won't show up on until the value is true once then toggles css classes
+    <ul>
+      <li ng-repeat="item in items">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+
+  <br>
+
+  <div ng-show="state">
+    Lots of bindings that won't show up on until the value is true once then toggles css classes
+    <ul>
+      <li ng-repeat="item in items">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+
+  <br>
+
+  <div ng-if="state">
+    Lots of bindings that won't show up on until the value is true once then toggles css classes
+    <ul>
+      <li ng-repeat="item in items">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+
+</main>
+
+
+<script type="text/javascript">
+  angular.module('app', [
+    'acIfShow'
+  ])
+  .controller('MainCtrl', function($scope) {
+    $scope.items = [
+      1,2,4,5,67,8
+    ];
+
+    $scope.state = false;
+
+    $scope.toggle = function() {
+      $scope.state = !$scope.state
+      console.log('$scope.state', $scope.state);
+    }
+
+  });
+
+
+</script>
+</body>
+</html>

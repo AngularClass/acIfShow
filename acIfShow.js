@@ -17,16 +17,16 @@
       link: function($scope, $element, $attr, ctrl, $transclude) {
           var block, childScope, previousElements, once;
 
-          ngIfHideWatchAction(value) {
+          function ngIfHideWatchAction(value) {
             if (once) {
-              ngHideWatchAction(value);
+              ngShowWatchAction(value);
             } else {
               ngIfWatchAction(value);
             }
           }
 
-          function ngHideWatchAction(value) {
-            $animate[value ? 'addClass' : 'removeClass'](previousElements || $element, NG_HIDE_CLASS, {
+          function ngShowWatchAction(value) {
+            $animate[value ? 'removeClass' : 'addClass'](angular.element(block.clone), NG_HIDE_CLASS, {
               tempClasses: NG_HIDE_IN_PROGRESS_CLASS
             });
           }
@@ -37,7 +37,7 @@
               if (!childScope) {
                 $transclude(function(clone, newScope) {
                   childScope = newScope;
-                  clone[clone.length++] = document.createComment(' end acIfHide: ' + $attr.acIfHide + ' ');
+                  clone[clone.length++] = document.createComment(' end acIfShow: ' + $attr.acIfShow + ' ');
                   // Note: We only need the first/last node of the cloned nodes.
                   // However, we need to keep the reference to the jqlite wrapper as it might be changed later
                   // by a directive with templateUrl when its template arrives.
@@ -49,7 +49,7 @@
                     return val;
                   });
                 });
-              }
+              }//childscope
             } else {
               if (previousElements) {
                 previousElements.remove();
@@ -65,25 +65,25 @@
                   previousElements = null;
                 });
                 block = null;
-              }
-            }
-          }
+              }//block
+            }//value
+          }//ngIfWatchAction
 
-          $scope.$watch($attr.acIfHide, ngIfHideWatchAction);
-      }
-    };
-  }];
+          $scope.$watch($attr.acIfShow, ngIfHideWatchAction);
+      }//link
+    };//return
+  };//$IfHideDirective
 
-  angular.module('acIfHide', [])
-  .directive('acIfHide',  ['$animate', $IfHideDirective])
+  angular.module('acIfShow', [])
+  .directive('acIfShow',  ['$animate', $IfHideDirective])
 
 
-  angular.module('angularclass-if-hide', ['acIfHide']);
-  angular.module('angular-class-if-hide', ['acIfHide']);
-  angular.module('AngularClass.IfHide', ['acIfHide']);
+  angular.module('angularclass-if-show', ['acIfShow']);
+  angular.module('angular-class-if-show', ['acIfShow']);
+  angular.module('AngularClass.IfHide', ['acIfShow']);
 
   if (typeof module === 'object' && typeof define !== 'function') {
-    module.exports = angular.module('acIfHide');
+    module.exports = angular.module('acIfShow');
   }
 
 }();

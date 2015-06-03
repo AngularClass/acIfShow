@@ -1,0 +1,18 @@
+{
+  "name": "acIfShow",
+  "main": "acIfShow.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/angular-class/acIfShow",
+  "description": "Angular 1.x directive that does ng-if then ng-show afterwards",
+  "authors": [
+    "gdi2290 <github@gdi2290.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
