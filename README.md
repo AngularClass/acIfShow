@@ -8,4 +8,4 @@ Use either one of these
 * cdn: `https://cdn.rawgit.com/angular-class/acIfShow/v1.0.0/acIfShow.js`
  
 
-Then include the angular.module('app', [`acIfShow`])
+Then include the `angular.module('app', [acIfShow])`
